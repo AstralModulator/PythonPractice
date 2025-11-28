@@ -1,26 +1,25 @@
 import random as rnd
 
-options = ('rock','paper', 'scissors')
+options = ('rock','paper','scissors')
+is_playing = True
+print("You are playing rock paper scissors")
+print(f"Your options are: {options}")
 
-print("Your options are: ")
-for option in options:
-    print(option,end = " ")
-print()
-
-continuee = True
-
-while continuee:
-    player = None
+while is_playing:
+    player = ""
     computer = rnd.choice(options)
     while player not in options:
         player = input("Enter your choice: ")
+        if player not in options:
+            print("Enter a valid option")
     print(f"Computer chose: {computer}")
-    if computer == player:
-        print("It's a tie!")
-    elif (computer == 'scissors' and player == 'rock') or (computer == 'paper' and player == 'scissors') or (computer == 'rock' and player == 'paper'):
-        print("You win!")
+    if (player == "rock" and computer == "scissors") or (player == "paper" and computer == "rock") or (player == "scissors" and computer == "paper"):
+        print("you win Player")
+    elif player == computer:
+        print("It's a Draw")
     else:
-        print("You lose!")
+        print("You Lose")
     if not input("Do you want to play again? (y/n): ").lower() == "y":
-        continuee = False
-print("Thank you for playing!")
+        is_playing = False
+
+print("Thank you for playing")
