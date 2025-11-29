@@ -61,7 +61,7 @@ users = {
     "004": {"name": "Nova", "roles": ["moderator"]}
 }
 
-state = "There is at least one banned user" if any("banned" in v["roles"] for v in users.values()) else "No banned users"
+state = "There is at least one banned user here." if any("banned" in v["roles"] for v in users.values()) else "There is no banned user here."
 print(state)
-admins = [v["name"] for v in users.values() if "admin" in v["roles"]]
-print(*admins, sep = "\n")
+players = [v["name"] for v in users.values() if "player" in v["roles"]]
+print(*players, sep = "\n")
