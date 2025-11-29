@@ -1,15 +1,14 @@
-num1 = int(input("Enter the first number: "))
-num2 = int(input("Enter the second number: "))
-def add_numbers(num1,num2):
-    return num1 + num2
-print(f"Addition: {add_numbers(num1,num2)}")
+num1 = int(input("Enter a number: "))
+num2 = int(input("Enter another number: "))
 
-#Create a Name
+def add_num(num1,num2):
+    return num1+num2
+print(f"Adding the two numbers: {add_num(num1,num2)}")
 
 first_name = input("Enter your first name: ")
 last_name = input("Enter your last name: ")
 
 def construct_name(first_name,last_name):
-    return first_name.capitalize() + " " + last_name.capitalize()
+    return f"Your constructed name is {first_name.capitalize()} {last_name.capitalize()}"
 
-print(f"Your constructed name comes out to be:{construct_name(first_name,last_name)} ")
+print(construct_name(first_name,last_name))
