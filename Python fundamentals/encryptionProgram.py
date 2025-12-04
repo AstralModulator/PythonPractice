@@ -1,26 +1,24 @@
-import string
+# Encryption Program second attempt
 import random
+import string
+def main():
+    chars = " " + string.ascii_letters + string.punctuation + string.digits
+    chars = list(chars)
+    keys = chars.copy()
+    random.shuffle(keys)
 
-chars = " " + string.punctuation + string.digits + string.ascii_letters
-chars = list(chars)
-print(chars)
+    secret_message = input("Enter the secret message: ")
+    encrypted_message = ""
+    for char in secret_message:
+        index = chars.index(char)
+        encrypted_message += keys[index]
+    decrypted_message = ""
+    for char in encrypted_message:
+        index = keys.index(char)
+        decrypted_message += chars[index]
+    print("Encrypted message: ", encrypted_message)
+    print("Decrypted message: ", decrypted_message)
 
-key = chars.copy()
-random.shuffle(key)
 
-print(key)
-
-plain_text = input("Enter your secret message: ")
-cyphered_text = ""
-
-for text in plain_text:
-    index = chars.index(text)
-    cyphered_text += key[index]
-print(cyphered_text)
-
-cyphered_text = input("Enter your cyphered message: ")
-plain_text = ""
-for text in cyphered_text:
-    index = key.index(text)
-    plain_text += chars[index]
-print(plain_text)
+if __name__ == '__main__':
+    main()
