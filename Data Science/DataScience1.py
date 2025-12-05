@@ -4,5 +4,5 @@ y = ["male",'female','female','female','male','male','male','female','male','fem
 
 clf = tree.DecisionTreeClassifier()
 clf = clf.fit(x,y)
-prediction = clf.predict([[181,80,44]])
+prediction = clf.predict([[181,80,55]])
 print(prediction)
