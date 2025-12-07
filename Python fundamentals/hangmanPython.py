@@ -66,49 +66,49 @@ hangman_stages = {
     =========
     """
 }
-def hint_print(hint):
-    return print(*hint,sep = " ")
-def hangman_print(wrong_guesses):
-    print("******************************")
+def print_hangman_stages(wrong_guesses):
+    print("*****************************")
     print(hangman_stages[wrong_guesses])
-    print("*******************************")
+    print("******************************")
+    return
 def main():
     word = rnd.choice(words)
+    hint = ["_"] * len(word)
     wrong_guesses = 0
     guesses = set()
-    hint = ["_"] * len(word)
+    print("You are playing Hangman By Python. Guess what you have?")
     is_playing = True
-    print("Welcome to Hangman!")
     while is_playing:
-        hangman_print(wrong_guesses)
-        hint_print(hint)
-        guess = input("Guess a letter: ")
-        if guess != 0 and not guess.isalpha():
-            print("Please enter a valid input.")
+        print_hangman_stages(wrong_guesses)
+        print(*hint, sep=" ")
+        guess = input("Guess a letter: ").lower()
+        if not guess.isalpha() or len(guess) != 1:
+            print("Sorry, that's not a letter.")
             continue
         if guess in guesses:
-            print("You have already guessed that letter. Please try again.")
+            print("You guessed the letter", guess)
             continue
         guesses.add(guess)
-        if guess not in word:
+        if not guess in word:
             wrong_guesses += 1
             print("Sorry, that's not in the word.")
         else:
-            for i in range(len(word)):
-                if word[i] == guess:
-                    hint[i] = guess
+            print("You guessed a letter")
+            for index in range(len(word)):
+                if word[index] == guess:
+                    hint[index] = word[index]
         if "_" not in hint:
-            print("You have successfully guessed the word.")
+            print("You Win!!!")
             is_playing = False
         if wrong_guesses >= 6:
-            print("Sorry, you lose.")
-            hangman_print(wrong_guesses)
-            print("The word was", word)
+            print("You have lost!")
+            print(f"The word was: {word}")
+            print_hangman_stages(wrong_guesses)
             is_playing = False
 
 
 
-    pass
+
 
 if __name__ == '__main__':
     main()
