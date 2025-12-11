@@ -29,5 +29,6 @@ class Pizza(Circle):
         super().area()
 
 
-pepporoni_pizza = Pizza('pepporoni',10)
-pepporoni_pizza.area()
+shapes = [Circle(10),Rectangle(10,20)]
+for shape in shapes:
+    shape.area()
