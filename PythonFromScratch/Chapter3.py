@@ -10,3 +10,11 @@ s = "deep"
 s.capitalize()
 print(s)
 
+list = [1,2,3,4,5]
+dist = list
+dist.append(6)
+print(list)
+list[5] = 6
+print(list)
+new = [[1,2,3,4,5],[1,2,3,4,5]]
+print(type(new))
